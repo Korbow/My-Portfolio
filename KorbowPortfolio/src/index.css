@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+/* Font */
+@font-face {
+  font-family: MontserratT;
+  src: url(../../public/assets/font/Montserrat/static/Montserrat-Bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: NotoTTSans;
+  src: url(../../public/assets/font/Noto_Sans/static/NotoSans-Regular.ttf);
+  font-weight: thin;
+}
+
+@font-face {
+  font-family: custom;
+  src: url(assets/font/Noto_Sans/static/NotoSans-Regular.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: EduHand;
+  src: url(../../public/assets/font/animal_chariot/Animal\ Chariot.ttf);
+  font-weight: bold;
+}
 
 
 
@@ -9,8 +32,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,3 +41,133 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* NAV */
+.itemNav{
+  display: flex;
+  flex-direction: column;
+  background-color: #29292938 ;
+  mix-blend-mode: difference;
+  filter: invert(100%);
+
+
+  border-radius: 0 25px 25px 0;
+  padding: 10px;
+}
+
+.itemNav svg {
+  margin: 3px 0px 3px 0px;
+  padding: 1px;
+  border-radius: 10%;
+  fill: #afafafea;
+  width: 40px;
+
+}
+
+.itemNav svg:hover {
+  background-color: #555555;
+  margin: 3px 0px 3px 0px;
+  padding: 1px;
+  border-radius: 10%;
+  fill: #292929;
+  width: 40px;
+
+}
+
+/* HERO */
+.HeroContent{
+  height: 100vh;
+  
+}
+
+
+.h3Hero{
+  font-family: system-ui;
+  font-size: 35px;
+}
+
+.HeroTitle{
+  position: absolute;
+  top: 27%;
+  left: 9%;
+}
+
+.ImagePfp{
+  position: absolute;
+  top: 17%;
+  right: 10%;
+  width: 540px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ImagePfp img{
+  width: 100%;
+  object-fit: contain;
+}
+
+.HeroBanner{
+  position: absolute;
+  top: 58%;
+  left: 4%;
+  width: 700px;
+  font-size: clamp(20px,16vw,190px);
+  font-family: MontserratT;
+}
+
+.ContourImagePfp{
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  z-index: 10;
+}
+
+.h3Hero{
+  width: 800px;
+  
+}
+
+.HighLightSpan{
+	--mark-color: #fce07ddc;
+	--mark-skew: 0.25em;
+	--mark-height: 1em;
+	--mark-overlap: 0.3em;
+
+	margin-inline: calc(var(--mark-overlap) * -1);
+	padding-inline: var(--mark-overlap);
+
+	background-color: transparent;
+	background-image:
+		linear-gradient(
+			to bottom right,
+			transparent 50%,
+			var(--mark-color) 50%
+		),
+		linear-gradient(
+			var(--mark-color),
+			var(--mark-color)
+		),
+		linear-gradient(
+			to top left,
+			transparent 50%,
+			var(--mark-color) 50%
+		)
+	;
+	background-size:
+		var(--mark-skew) var(--mark-height),
+		calc(100% - var(--mark-skew) * 2 + 1px) var(--mark-height),
+		var(--mark-skew) var(--mark-height)
+	;
+	background-position:
+		left center,
+		center,
+		right center
+	;
+	background-repeat: no-repeat;
+	color: inherit;
+
+  -webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+
+}
