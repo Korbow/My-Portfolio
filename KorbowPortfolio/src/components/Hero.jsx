@@ -28,7 +28,7 @@ const Hero = () => {
 
       gsap.fromTo(svgRef.current, 
         {drawSVG:"62.5% 62.5%", stroke:"white"},
-        {duration: 1.5, drawSVG:"0% 100%", stroke:"black"}, 0.3
+        {duration: 1, drawSVG:"0% 100%", stroke:"black"}, 0.3
 
       );
 
@@ -42,32 +42,22 @@ const Hero = () => {
 
       );
 
-
-
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.current,
           start: "top top",        // début quand le haut de hero atteint le haut du viewport
-          end: "+=60%",           // durée du scroll pour l'animation (1 viewport ici)
+          end: "+=90%",           // durée du scroll pour l'animation (1 viewport ici)
           pin: true,               // on fixe le hero pendant la timeline
           scrub: true,             // l'animation suit le scroll
           anticipatePin: 1,        // lisse la transition pin/unpin
           onLeave: () => console.log("Pin terminé, scroll normal"), // optionnel
         },
       });
-  
 
-
-      tl.fromTo(svgRef.current, {drawSVG:"62.5% 175%"}, {duration: 3, drawSVG:"100% 100%"}
+      tl.fromTo(svgRef.current, {drawSVG:"62.5% 175%"}, {duration: 4, drawSVG:"100% 100%"}
 
       );
 
-      
-
-      
-
-  
       return () => ScrollTrigger.getAll().forEach(st => st.kill());
     }, []);
     

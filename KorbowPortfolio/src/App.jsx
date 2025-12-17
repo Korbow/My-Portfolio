@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
+import Project from './components/Project'
 
 
 
@@ -13,8 +14,9 @@ function App() {
       
       <Nav />
       <Hero />
+
       <About />
-      
+      <Project />
 
     </>
   )

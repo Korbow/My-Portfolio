@@ -279,3 +279,138 @@
       @apply   size-full bg-[url("/assets/images/noise.png")];
   }
 }
+
+.Text{
+  font-family: MontserratT;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+span.highlightGreen{
+  color: #4b9e77; /* couleur principale */
+  text-shadow:
+    0 0 15px  #63b48fe1,
+}
+
+.AboutMe{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 30px;
+}
+
+.imgPfpAboutMe{
+  max-width: 180px;
+}
+
+.pAboutMe{
+  max-width: 450px;
+  text-align: center;
+}
+
+.Skills{
+  height: 100%;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.SkillsTitle{
+  text-align: center;
+  margin: 4% 4%;
+}
+.skillsWebDevlopment {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  grid-template-rows: repeat(2, 100px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+  } 
+
+.skillsWebDevlopmentItems img{
+  max-width: 80px;
+  max-height: 70px;
+}
+
+.skillsWebDevlopmentItems p, .OthersItems p{
+  font-size: 10px;
+  text-align: center;
+}
+.Others{
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  grid-template-rows: repeat(2, 100px);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  justify-content: center;
+
+
+}
+
+
+.OthersItems img{
+  max-width: 80px;
+  max-height: 70px;
+}
+
+.OthersItems, .skillsWebDevlopmentItems{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 4%;
+}
+
+.drawerItem{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.titledrawer{
+  display: flex;
+  align-items: center;   /* centrage vertical */
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.titledrawer h3 {
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+}
+
+
+
+.drawerWebDevelopmentSkills, .drawerOthersSkills{
+  display: flex;
+  flex-direction: row;
+}
+
+.AboutBackground {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AboutContent {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+
+/* PROJECT */
