@@ -414,3 +414,101 @@ span.highlightGreen{
 
 
 /* PROJECT */
+.ProjectSection{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.ContentProject{
+  position: relative;
+  height: 800px;
+  width: 1500px;
+  border: solid 3px rgb(255, 72, 0);
+}
+#imgFrontScreen{
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  width: 49%;
+
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+}
+
+#imgCoteScreen{
+  position: absolute;
+  top: 52%;
+  left: 12%;
+  height: 82%;
+  transform: translate(-50%, -50%);
+}
+
+#container3D{
+  position: absolute;
+  top: 65%;
+  left: 88%;
+  z-index: 10;
+  width: 40%;
+
+}
+
+#container3Dimg{
+  width: 580px;
+  z-index: 15;
+  position: relative;
+}
+
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Modal */
+.modal {
+  position: absolute;
+  inset: 15px;
+  background: #111;
+  color: white;
+  border-radius: 24px;
+  padding: 40px;
+  --x: 50vw;
+  --y: 50vh;
+
+  clip-path: circle(0px at var(--x) var(--y));
+  transition: clip-path 0.8s cubic-bezier(.4,0,.2,1);
+  opacity: 1;
+  z-index: 10;
+}
+
+/* Active */
+.overlay.active {
+  pointer-events: auto;
+
+}
+
+.overlay.active .modal {
+  clip-path: circle(150% at var(--x) var(--y));
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 50px;
+}
+
+
+
+#container3D.transitioned{
+ 
+  z-index: 10;
+  clip-path: circle(150% at var(--cx) var(--cy));
+}
