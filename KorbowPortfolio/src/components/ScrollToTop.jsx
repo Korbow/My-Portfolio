@@ -2,15 +2,17 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const pathname = location.pathname;
+  const background = location.state && location.state.background;
 
   useEffect(() => {
-    // On ne force le scroll à 0 que si on n'est PAS dans une transition de détail
-    // Ou alors, on laisse faire, car ProjectDetail est en "fixed" donc ça ne se verra pas.
-    
-    window.scrollTo(0, 0);
-    
-  }, [pathname]);
+    if (background) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [background]);
 
   return null;
 }
