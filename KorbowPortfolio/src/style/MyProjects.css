@@ -373,3 +373,39 @@
   }
   
 }
+
+
+
+
+
+@media (max-width: 768px) {
+  .ProjectDetailCiteMaudite video {
+    width: 85%;
+  }
+  .FirstPartLabel {
+    width: 70% !important;
+    padding: 2% 3%;
+  }
+  .GregClips img {
+    width: 80%;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.5);
+    margin-bottom: 5%;
+  }
+
+  .SecondPartLabel, .FirstPartLabel {
+    width: 80% !important;
+    padding: 2%, 2%;
+  }
+  .GraffitiKore video {
+    width: 70%;
+  }
+  .GraffitiKore img {
+    width: 70%;
+  }
+  .div3{
+    margin-left: 10px;
+  }
+  .div5{
+    margin-left: 10px;
+  }
+}

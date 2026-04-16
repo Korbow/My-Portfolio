@@ -26,6 +26,7 @@ const Pricing = ({ id }) => {
           
         </div>
       </div>
+      
       <Footer triggerRef={PricingPinRef }/>
     </div>
     
@@ -54,7 +55,7 @@ const Footer = ({ triggerRef }) => {
           gsap.fromTo(
             footerRef.current,
             {
-              y: 900,
+              y: 1200,
               scale: 1,
               borderRadius: "5px",
             },
@@ -65,8 +66,34 @@ const Footer = ({ triggerRef }) => {
               borderRadius: "60px",
               scrollTrigger: {
                 trigger: wrapperRef.current,
-                start: "300 90%",
-                end: "+=430 90%",
+                start: "500 90%",
+                end: "+=920 90%",
+                scrub: true,
+                pin: triggerRef.current, 
+
+              }
+            }
+          );
+
+        },
+        "(min-width: 768px) and (max-width: 1000px)": function() {
+
+          gsap.fromTo(
+            footerRef.current,
+            {
+              y: 1200,
+              scale: 1,
+              borderRadius: "5px",
+            },
+            {
+              y: 0,  
+              scale: 0.6,
+              ease: "none",
+              borderRadius: "60px",
+              scrollTrigger: {
+                trigger: wrapperRef.current,
+                start: "500 90%",
+                end: "+=920 90%",
                 scrub: true,
                 pin: triggerRef.current, 
 
@@ -76,13 +103,14 @@ const Footer = ({ triggerRef }) => {
 
         },
         // Grands ecrans
-        "(min-width: 769px)": function() {
+        "(min-width: 1001px)": function() {
           gsap.fromTo(
             footerRef.current,
             {
-              y: 400,
-              scale: 1,
+              y: 1200,
+              scale: 1.0,
               borderRadius: "5px",
+              
             },
             {
               y: 0,  
@@ -108,7 +136,9 @@ const Footer = ({ triggerRef }) => {
   }, []);
 
   return (
+    
     <div className="footer-wrapper" ref={wrapperRef}>
+      
       <footer className="footer" ref={footerRef}>
         <div className="footerFlex">
           <div className="footerColumnNotes">

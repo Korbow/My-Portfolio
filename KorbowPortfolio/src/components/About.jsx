@@ -43,9 +43,30 @@ useEffect(() => {
 
         },
 
-        // Ecran Petit
+        "(min-width: 768px) and (max-width: 1000px)": function () {
+          const PfpAbout = PfpAboutMe.current;
 
-        "(min-width: 768px) and (max-width: 1199px)": function () {
+          const section = AboutSectionRef.current;
+          const tlZoom = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: "5% top",
+              end: "10% bottom",
+
+            }
+          });
+  
+  
+          tlZoom.fromTo(
+            PfpAbout,
+            { scale: 1, opacity: 1},
+            { scale: 1, ease: "none", duration: 0.1, opacity: 1}  
+          );
+
+        },
+
+
+        "(min-width: 1001px) and (max-width: 1199px)": function () {
           const section = AboutSectionRef.current;
           const content = AboutContentRef.current;
           const PfpAbout = PfpAboutMe.current;
@@ -58,7 +79,7 @@ useEffect(() => {
           scrollTrigger: {
             trigger: section,
             start: "5% top",
-            end: "+=550%",
+            end: "+=200%",
             scrub: true,
             pin: section,
             anticipatePin: 1,

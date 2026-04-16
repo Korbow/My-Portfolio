@@ -1,6 +1,6 @@
 .footer-wrapper{
     height: 42vh;
-    position: relative;
+
     overflow: hidden;
     background: #111;
     z-index: 70;
@@ -8,7 +8,7 @@
 }
 
 .footer{
-    margin-top: -80px;
+
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -160,7 +160,7 @@
 .footerLabel{
     text-align: center;
     font-family: MontserratT;
-    font-size: clamp(10px,2vw,25px);
+    font-size: clamp(15px,2.5vw,25px);
     margin: 30px 3px;
 }
 
@@ -169,7 +169,7 @@
 
 @media (max-width: 1250px) {
     .footer {
-        margin-top: -80px;
+
         position: absolute;
         bottom: 0;
         width: 100%;
@@ -185,6 +185,8 @@
         font-family: Inter,Arial,sans-serif;
         text-transform: uppercase;
       }
+
+
   }
   @media (max-width: 1000px) {
     .footerColumnNotes {
@@ -215,25 +217,28 @@
     width: 40px;
     }
 
-    .footer-wrapper{
-    min-height: 42vh; 
-    height: auto;     
-    overflow: visible;
+    .footer-wrapper {
+        
+        height: 1000px;
     }
     
     .footer{
         height: auto;     
-        min-height: 60vh; 
-        margin-top: 80px;
+        min-height: 800px; 
+
+
         border-radius: clamp(20px, 3vw, 52px);
+        padding: 1% 2%;
+        
     }
 
     .footerLabel {
         text-align: center;
         font-family: MontserratT;
-        font-size: clamp(10px,2vw,25px);
+        font-size: clamp(15px,2.5vw,25px);
         margin: clamp(10px,2vw,30px) 3px;
     }
+
 
 
   }

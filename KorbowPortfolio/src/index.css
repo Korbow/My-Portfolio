@@ -548,7 +548,7 @@ span.highlightGreen{
     border-radius: 20px;
     background-color: #323339;
     z-index: 1;
-    width: 90%;
+    width: 70%;
     height: 100%;
     overflow-y: scroll;
     display: flex;
@@ -565,6 +565,14 @@ span.highlightGreen{
     height: clamp(10px, 3vw, 120px) !important;
 
   }
+
+  .NaHaut{
+    height: 40px !important;
+  }
+
+  .NANA {
+    height: 140px !important;
+  }
   
 }
 
@@ -573,12 +581,34 @@ span.highlightGreen{
 }
 
 @media (max-width: 700px) {
-
+  .AboutContent{
+    margin: 75px 0px 0px 0px;
+    border-radius: 20px;
+    background-color: #323339;
+    z-index: 1;
+    width: 90%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 }
 
 
 @media (max-width: 480px) {
+  .AboutContent{
 
+    width: 95%;
+
+  }
+  .NaHaut{
+    height: 10px !important;
+  }
+  .NANA {
+    height: 120px !important;
+  }
 }
 
 
@@ -1433,7 +1463,7 @@ span.highlightGreen{
 
 .parent div.relative{
 
-  
+  z-index: 10;
   border-radius: 15px;
 
   outline-offset: px;
@@ -1441,6 +1471,8 @@ span.highlightGreen{
 
 
   transition: outline 0.3s ease-out, outline-offset 0.3s ease-out;
+
+  overflow: hidden;
   
 }
 
@@ -1593,6 +1625,12 @@ fontBeausite{
 
 }
 
+.div9 {
+  overflow: hidden;
+}
+
+
+
 .div9 .bgreveallock2{
   background-color: var(--Second-Padlock-color);
 }
@@ -1637,9 +1675,6 @@ fontBeausite{
     width: 100%;
   }
 
-  .groupedCont{
-    display: flex;
-  }
 
   .grouped-top {
     display: grid;
@@ -1647,9 +1682,10 @@ fontBeausite{
     grid-template-rows: repeat(2, 1fr);
     row-gap: 10px;
 
+
   }
 
-
+  
 
   .grouped-div {
     width: 100%;
