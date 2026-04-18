@@ -584,6 +584,27 @@ const BodyProjectGallery = () => {
     setHovered(false);
     };
 
+    useEffect(() => {
+      setTimeout(() => {
+        gsap.fromTo(
+          ".containElementProject",
+          {
+            y: 80,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.15,
+
+            ease: "power2.out",
+            delay: 1.5,
+          }
+        );
+      }, 1000); 
+    }, []);
+
 
 
   return (
@@ -597,7 +618,7 @@ const BodyProjectGallery = () => {
                     exit={{ opacity: 0 }}
                     className="parent Grid"
                 >
-                        <div className="div1 relative flex items-center flex-col justify-start" onClick={() => setActiveProject(1)}>
+                        <div className="div1 relative flex items-center flex-col justify-start containElementProject" onClick={() => setActiveProject(1)}>
                             <div className="m-2">
                                 <h2 className="fontBeausite text-[12px] font-normal tracking-[-0.02em] leading-[100%] text-left ">
                                     CMFR SITE CITE MAUDITE
@@ -622,7 +643,7 @@ const BodyProjectGallery = () => {
                         </div>
                         <div className="groupedCont">
                           <div className="grouped grouped-top">
-                          <div className="div2 relative flex items-center flex-col" onClick={() => setActiveProject(2)}>
+                          <div className="div2 relative flex items-center flex-col containElementProject" onClick={() => setActiveProject(2)}>
                               <div className="m-2">
                                   <h2 className="fontBeausite text-[12px] font-normal tracking-[-0.02em] leading-[100%] text-left ">
                                       TICTACTOE WEB
@@ -647,7 +668,7 @@ const BodyProjectGallery = () => {
                               </video>
                           </div>
                         
-                          <div className="div3 relative flex items-center flex-col" onClick={() => setActiveProject(3)}>
+                          <div className="div3 relative flex items-center flex-col containElementProject" onClick={() => setActiveProject(3)}>
 
                               <div className=" m-2">
                               <h2 className="fontBeausite text-[12px] font-normal tracking-[-0.02em] leading-[100%] text-left ">
@@ -673,7 +694,7 @@ const BodyProjectGallery = () => {
                               </video>
                           </div>
 
-                          <div className="div4 relative flex items-center  flex-col" onClick={() => setActiveProject(4)}>
+                          <div className="div4 relative flex items-center flex-col containElementProject" onClick={() => setActiveProject(4)}>
 
                               <div className=" m-2">
                                   <h2 className="fontBeausite text-[12px] font-normal tracking-[-0.02em] leading-[100%] text-left ">
@@ -684,7 +705,7 @@ const BodyProjectGallery = () => {
                               <HoverSlideshow/>
                           </div>
 
-                          <div className="div5 relative group"
+                          <div className="div5 relative group containElementProject"
                               onMouseEnter={handleHover}
                               onMouseLeave={handleLeave}
                           >
@@ -719,7 +740,7 @@ const BodyProjectGallery = () => {
                         </div>
 
                         <div className="grouped grouped-middle">
-                          <div className="div6 relative flex items-center flex-col" onClick={() => setActiveProject(6)}>
+                          <div className="div6 relative flex items-center flex-col containElementProject" onClick={() => setActiveProject(6)}>
                             <div className="m-2">
                                 <h2 className="fontBeausite text-[12px] text-white font-normal tracking-[-0.02em] leading-[100%] text-left ">
                                     SVELT NOTE
@@ -766,7 +787,7 @@ const BodyProjectGallery = () => {
                             
 
                           </div>
-                          <div className="div7 relative flex items-center flex-col" onClick={() => setActiveProject(7)}>
+                          <div className="div7 relative flex items-center flex-col containElementProject" onClick={() => setActiveProject(7)}>
                               <div className="m-2">
                                   <h2 className="fontBeausite text-[12px] font-normal tracking-[-0.02em] leading-[100%] text-left ">
                                       PLUGIN GRAFFITIKORE
@@ -790,7 +811,7 @@ const BodyProjectGallery = () => {
                                   />
                               </video>
                           </div>
-                          <div className="div8 relative flex items-center flex-col" onClick={() => setActiveProject(8)}>
+                          <div className="div8 relative flex items-center flex-col containElementProject" onClick={() => setActiveProject(8)}>
                               <div className=" m-2">
                               <h2 className="fontBeausite text-[12px] font-normal tracking-[-0.02em] leading-[100%] text-left ">
                                       MINESWEEPER WEB
@@ -815,7 +836,7 @@ const BodyProjectGallery = () => {
                               </video>
                           </div>
                         </div>
-                        <div className="div9 relative group "
+                        <div className="div9 relative group containElementProject"
                             onMouseEnter={handleHover}
                             onMouseLeave={handleLeave}
                         >

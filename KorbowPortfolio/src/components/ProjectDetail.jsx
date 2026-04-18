@@ -4,6 +4,9 @@ import { Link } from "react-router-dom"
 import { tracks } from "../datas/tracks.js";
 import AudioPlayerHub from './AudioPlayerHub.jsx'
 import { useAudio } from "./AudioContext";
+import { useLocation } from "react-router-dom";
+import gsap from "gsap";
+
 
 // Toutes les frames
 const frames = [
@@ -61,6 +64,16 @@ const ProjectDetail = ({ isModal }) => {
   const [currentArtist, setCurrentArtist] = useState(null);
 
 
+  const location = useLocation();
+  const state = location.state;
+
+  const isFromTransition = !!state;
+
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [isAnimatingFrames, setIsAnimatingFrames] = useState(false);
+
+
+
   // Bloque le scroll 
   useEffect(() => {
     if (isModal) {
@@ -69,23 +82,65 @@ const ProjectDetail = ({ isModal }) => {
     }
   }, [isModal]);
 
-  //  Logique d'animation des frames
+
   useEffect(() => {
-
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        setCurrentFrame((prev) => {
-          if (prev < frames.length - 1) return prev + 1;
-          clearInterval(interval); 
-          return prev;
-        });
-      }, 40); 
-    }, 100); 
-
-    return () => clearTimeout(timeout);
+    let loadedCount = 0;
+  
+    frames.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+  
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === frames.length) {
+          setImagesLoaded(true);
+        }
+      };
+    });
   }, []);
+  
+
+  //  Logique d'animation des frames
+
+
+  //  Premiere partie que sur la frame 1
+  useEffect(() => {
+    if (!imagesLoaded) return;
+  
+    setCurrentFrame(0); // on reste sur la frame 1
+  
+    const timeout = setTimeout(() => {
+      setIsAnimatingFrames(true); // on autorise l’anim après
+    }, 10); // 
+  
+    return () => clearTimeout(timeout);
+  }, [imagesLoaded]);
+  
+
+  // Seconde partie avec defilemment des frames.
+  useEffect(() => {
+    if (!isAnimatingFrames) return;
+  
+    let frame = 0;
+  
+    const interval = setInterval(() => {
+      frame++;
+      if (frame >= frames.length) {
+        clearInterval(interval);
+      } else {
+        setCurrentFrame(frame);
+      }
+    }, 40);
+  
+    return () => clearInterval(interval);
+  }, [isAnimatingFrames]);
+
+
+
+
 
   useEffect(() => {
+    
     const handleMouseDown = (e) => {
       const target = e.target.closest(".draggable");
       if (!target) return;
@@ -155,6 +210,7 @@ const ProjectDetail = ({ isModal }) => {
       setCurrentArtist(track.artist);
 
     };
+    
   
     document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("mousemove", handleMouseMove);
@@ -165,7 +221,15 @@ const ProjectDetail = ({ isModal }) => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
+
+    
   }, []);
+
+
+
+
+
+  
   
   
   
@@ -229,19 +293,15 @@ const ProjectDetail = ({ isModal }) => {
             ref={dropzoneRef}
             className="vinyle-dropzone"
           >
-
           </div>
 
           <div className="VinyleSpace">
-            
-
-
-            {/* mouvant du vinyle */}
+            {/* mouvant du vinyle affiche seulement si tout est chargé*/}
             <motion.img
-              layoutId="project-image-unique"
-              src={frames[currentFrame]}
+              initial={false}
+              layoutId={isFromTransition ? "project-image-unique" : undefined}
+              src={isAnimatingFrames ? frames[currentFrame] : frames[0]}
               className="vinyleTourneDisque ml-auto"
-              transition={{ duration: 1, type: "spring", bounce: 0.2 }}
             />
             {currentVinyl && (
                 <div className="Vinyle">
